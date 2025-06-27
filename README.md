@@ -104,5 +104,3 @@ A fully functional tabbed interface using only HTML structure and CSS selectors,
 - **E-commerce product pages**: Fast switching between details, reviews, specifications
 - **Portfolio sites**: Showcasing different project categories or skills
 - **Educational platforms**: Organizing lesson content into digestible sections
-
-
