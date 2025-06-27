@@ -1,0 +1,54 @@
+.tabs-container{
+
+    margin: 80px 50px
+}
+
+.tabs label{
+  
+    border: 1px;
+    background-color: whitesmoke;
+    margin: 0px 4px 0px 4px;
+    padding: 6px 8px 6px 8px;
+    border-radius: 4px;
+    cursor: pointer; 
+    user-select: none;
+  }
+  
+  
+  .tabs input[type = "radio"]{
+  
+      display: none;
+  }
+  
+  
+  #tab-html:checked ~ label[for= "tab-html"]{
+    background-color: blue;
+    color: aliceblue;
+  }
+  #tab-css:checked ~ label[for = "tab-css"]{
+    background-color: blue;
+    color: aliceblue;
+  }
+  
+  #tab-js:checked ~ label[for = "tab-js"]{
+    background-color: blue;
+    color: aliceblue;
+  }
+  
+  
+  .content p {
+  
+    display: none;
+  }
+  
+  #tab-html:checked ~ .content .html{
+    display: block;
+  }
+  
+  #tab-css:checked ~ .content .css{
+    display: block;
+  }
+  
+  #tab-js:checked ~ .content .js{
+    display: block;
+  }
