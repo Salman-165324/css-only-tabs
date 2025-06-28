@@ -1,13 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
+<!-- 
+  Main HTML Document for React Tab Application
+  
+  This is the entry point for our React application. It provides the basic HTML
+  structure and mounting point for the React component tree.
+  
+  The file uses modern HTML5 standards and includes optimizations for
+  mobile devices and performance.
+-->
 <html lang="en">
   <head>
+    <!-- Character encoding for proper text display -->
     <meta charset="UTF-8" />
+
+    <!-- Favicon - the small icon displayed in browser tabs -->
+    <!-- Using Vite's default SVG icon, but can be customized -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- 
+      Viewport meta tag for responsive design
+      - width=device-width: Makes the page width follow the screen width
+      - initial-scale=1.0: Sets the initial zoom level when page loads
+      This ensures proper mobile device rendering
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 
+      Page title displayed in browser tab
+      This should be updated to reflect the actual application name
+    -->
     <title>Vite + React</title>
   </head>
   <body>
+    <!-- 
+      Root Container for React Application
+      
+      This div serves as the mounting point for the entire React component tree.
+      The React application will be rendered inside this element.
+      
+      The id "root" is referenced in src/main.jsx where we call:
+      createRoot(document.getElementById('root'))
+    -->
     <div id="root"></div>
+
+    <!-- 
+      Main JavaScript Entry Point
+      
+      This script tag loads the main.jsx file, which:
+      1. Sets up the React application
+      2. Renders the App component into the #root div
+      3. Enables development features like Hot Module Replacement
+      
+      The "type=module" attribute enables ES6 module syntax
+      and modern JavaScript features in the browser.
+    -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -1,0 +1,33 @@
+/*
+ * Global Stylesheet
+ * 
+ * This file contains global styles that apply to the entire application.
+ * It's imported in main.jsx and loaded before any component-specific styles.
+ * 
+ * Currently empty, but this file is typically used for:
+ * 
+ * - CSS Reset or Normalize styles
+ * - Base typography (font families, sizes, line heights)
+ * - Global color variables and design tokens
+ * - Body and html element styling
+ * - Global utility classes
+ * - CSS custom properties (variables) used across the app
+ * 
+ * Example of what might be added here:
+ * 
+ * :root {
+ *   --primary-color: #007bff;
+ *   --secondary-color: #6c757d;
+ *   --font-family: 'Arial', sans-serif;
+ * }
+ * 
+ * * {
+ *   box-sizing: border-box;
+ * }
+ * 
+ * body {
+ *   margin: 0;
+ *   font-family: var(--font-family);
+ *   line-height: 1.6;
+ * }
+ */

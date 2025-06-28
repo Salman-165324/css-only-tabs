@@ -1,85 +1,160 @@
-.tabs-container{
+/*
+ * Tabs CSS Stylesheet
+ * 
+ * This stylesheet implements a complete tab system using only CSS and HTML radio buttons.
+ * No JavaScript is required for the tab functionality.
+ * 
+ * Key Techniques Used:
+ * - Radio button grouping for mutually exclusive selection
+ * - CSS sibling selectors (~) for state-based styling
+ * - Visually hidden radio inputs with proper accessibility
+ * - Focus management for keyboard navigation
+ * - Content switching through display properties
+ */
 
-    margin: 80px 50px;
-    max-width: 400px; 
-    padding: 20px 20px 10px 20px;
-   
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px hsla(0, 0.00%, 0.00%, 0.10);
+/* 
+ * Main Tabs Container
+ * 
+ * This is the outermost wrapper for the entire tab component.
+ * Sets up the basic layout, spacing, and visual appearance.
+ */
+.tabs-container {
+  /* Positioning and spacing */
+  margin: 80px 50px; /* Generous margins for demo purposes */
+  max-width: 400px; /* Prevents tabs from becoming too wide */
+  padding: 20px 20px 10px 20px; /* Internal spacing (top, right, bottom, left) */
+
+  /* Visual styling */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Slightly rounded corners */
+  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.1); /* Subtle shadow for depth */
 }
 
-.tabs label{
-  
-    border: 1px;
-    background-color: whitesmoke;
-    margin: 0px 4px 0px 4px;
-    padding: 6px 8px 6px 8px;
-    border-radius: 4px;
-    cursor: pointer; 
-    user-select: none;
-  }
-  
-  
-  .tabs input[type = "radio"]{
-  
-    position: absolute;
-    opacity: 0;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-    
-  }
+/*
+ * Tab Labels (Clickable Tab Headers)
+ * 
+ * These elements serve as the visual tab buttons that users click.
+ * They're connected to radio inputs via the 'for' attribute.
+ */
+.tabs label {
+  /* Layout and spacing */
+  border: 1px; /* Minimal border (effectively none) */
+  background-color: whitesmoke; /* Light gray background for inactive tabs */
+  margin: 0px 4px 0px 4px; /* Small gaps between tabs */
+  padding: 6px 8px 6px 8px; /* Internal padding for comfortable clicking */
+  border-radius: 4px; /* Rounded corners for modern appearance */
 
-  #tab-html:focus ~ label[for="tab-html"]{
-    outline: 2px solid rgb(184, 182, 92);
-    outline-offset: 2px;
-  }
+  /* Interactive behavior */
+  cursor: pointer; /* Shows hand cursor to indicate clickability */
+  user-select: none; /* Prevents text selection when clicking */
+}
 
-  
-  #tab-css:focus ~ label[for="tab-css"]{
-    outline: 2px solid rgb(184, 182, 92);
-    outline-offset: 2px;
-  }
+/*
+ * Hidden Radio Inputs
+ * 
+ * These radio buttons control the tab state but are visually hidden.
+ * They remain accessible to screen readers and keyboard navigation.
+ * 
+ * This technique is called "visually hidden" - the elements are invisible
+ * but still present in the accessibility tree and keyboard tab order.
+ */
+.tabs input[type="radio"] {
+  /* Standard visually hidden technique */
+  position: absolute; /* Remove from normal document flow */
+  opacity: 0; /* Make completely transparent */
+  width: 1px; /* Minimal dimensions */
+  height: 1px;
+  overflow: hidden; /* Hide any content that might overflow */
+  clip: rect(0, 0, 0, 0); /* Legacy clipping for older browsers */
+  white-space: nowrap; /* Prevent text wrapping */
+  border: 0; /* Remove any borders */
+}
 
-  
-  #tab-js:focus ~ label[for="tab-js"]{
-    outline: 2px solid rgb(184, 182, 92);
-    outline-offset: 2px;
-  }
-  
-  
-  #tab-html:checked ~ label[for= "tab-html"]{
-    background-color: blue;
-    color: aliceblue;
-  }
-  #tab-css:checked ~ label[for = "tab-css"]{
-    background-color: blue;
-    color: aliceblue;
-  }
-  
-  #tab-js:checked ~ label[for = "tab-js"]{
-    background-color: blue;
-    color: aliceblue;
-  }
-  
-  
-  .content p {
-  
-    display: none;
-  }
-  
-  #tab-html:checked ~ .content .html{
-    display: block;
-  }
-  
-  #tab-css:checked ~ .content .css{
-    display: block;
-  }
-  
-  #tab-js:checked ~ .content .js{
-    display: block;
-  }
+/*
+ * Focus Indicators for Accessibility
+ * 
+ * When users navigate with keyboard (Tab key), these styles provide
+ * visual feedback showing which tab is currently focused.
+ * The ~ selector targets the label that comes after the focused input.
+ */
+
+/* HTML tab focus indicator */
+#tab-html:focus ~ label[for="tab-html"] {
+  outline: 2px solid rgb(184, 182, 92); /* Yellow-green outline */
+  outline-offset: 2px; /* Space between element and outline */
+}
+
+/* CSS tab focus indicator */
+#tab-css:focus ~ label[for="tab-css"] {
+  outline: 2px solid rgb(184, 182, 92); /* Consistent focus styling */
+  outline-offset: 2px;
+}
+
+/* JavaScript tab focus indicator */
+#tab-js:focus ~ label[for="tab-js"] {
+  outline: 2px solid rgb(184, 182, 92); /* Consistent focus styling */
+  outline-offset: 2px;
+}
+
+/*
+ * Active Tab Styling (Checked State)
+ * 
+ * When a radio button is checked (selected), these styles make the
+ * corresponding label look active/selected.
+ * The ~ selector is the "general sibling selector" - it selects elements
+ * that come after the checked input in the same parent.
+ */
+
+/* HTML tab active state */
+#tab-html:checked ~ label[for="tab-html"] {
+  background-color: blue; /* Blue background for active tab */
+  color: aliceblue; /* Light text color for contrast */
+}
+
+/* CSS tab active state */
+#tab-css:checked ~ label[for="tab-css"] {
+  background-color: blue; /* Consistent active styling */
+  color: aliceblue;
+}
+
+/* JavaScript tab active state */
+#tab-js:checked ~ label[for="tab-js"] {
+  background-color: blue; /* Consistent active styling */
+  color: aliceblue;
+}
+
+/*
+ * Content Panel Base Styling
+ * 
+ * All content panels are hidden by default.
+ * Only the panel corresponding to the selected tab will be shown.
+ */
+.content p {
+  display: none; /* Hide all content by default */
+}
+
+/*
+ * Content Display Logic
+ * 
+ * These selectors show the appropriate content based on which radio button
+ * is checked. The ~ selector looks for elements that come after the checked
+ * input in the same parent container.
+ * 
+ * The pattern is: when input is checked, find the .content div that comes
+ * after it, then find the specific content class within that div.
+ */
+
+/* Show HTML content when HTML tab is selected */
+#tab-html:checked ~ .content .html {
+  display: block; /* Make HTML content visible */
+}
+
+/* Show CSS content when CSS tab is selected */
+#tab-css:checked ~ .content .css {
+  display: block; /* Make CSS content visible */
+}
+
+/* Show JavaScript content when JavaScript tab is selected */
+#tab-js:checked ~ .content .js {
+  display: block; /* Make JavaScript content visible */
+}

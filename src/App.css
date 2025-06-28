@@ -1,0 +1,16 @@
+/*
+ * App Component Styles
+ * 
+ * This stylesheet is specifically for the main App component.
+ * Currently empty as all styling is handled by individual component stylesheets.
+ * 
+ * This file can be used for:
+ * - Global application styles that apply to the entire app
+ * - Layout styles for the main App component wrapper
+ * - CSS custom properties (variables) used across components
+ * - Reset styles or base typography
+ * 
+ * For this tab application, all specific styles are contained within:
+ * - Tabs.css (for the tab component functionality and appearance)
+ * - index.css (for global/base styles)
+ */
